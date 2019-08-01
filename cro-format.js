@@ -2,7 +2,7 @@ var CroFormat = (function() {
   var ClassArr = [Number, String, Boolean, Array, Object];
 
   function getDataType(data) {
-    const dataTypeMap = {
+    var dataTypeMap = {
       Number: Number,
       String: String,
       Boolean: Boolean,
@@ -17,7 +17,7 @@ var CroFormat = (function() {
     switch (dataType) {
       case Number:
         {
-          const tempRes = Number(value === null ? undefined : value);
+          var tempRes = Number(value === null ? undefined : value);
           return isNaN(tempRes) ? normalValue || 0 : tempRes;
         }
         break;
@@ -46,8 +46,8 @@ var CroFormat = (function() {
   }
 
   function formatItem(value, formatConf) {
-    const DT_value = getDataType(value);
-    const DT_formatConf = getDataType(formatConf);
+    var DT_value = getDataType(value);
+    var DT_formatConf = getDataType(formatConf);
 
     // 如果是基本数据类型判断
 
@@ -69,17 +69,17 @@ var CroFormat = (function() {
   }
 
   function format(dataSource, formatConf) {
-    const DT_dataSource = getDataType(dataSource);
-    const DT_formatConf = getDataType(formatConf);
+    var DT_dataSource = getDataType(dataSource);
+    var DT_formatConf = getDataType(formatConf);
 
     if (DT_formatConf === Object) {
-      let tempObj = {};
-      for (const key in formatConf) {
-        const tempItem = (dataSource || {})[key];
-        const tempFormatConf = formatConf[key];
+      var tempObj = {};
+      for (var key in formatConf) {
+        var tempItem = (dataSource || {})[key];
+        var tempFormatConf = formatConf[key];
 
-        const DT_tempItem = getDataType(tempItem);
-        const DT_tempFormatConf = getDataType(tempFormatConf);
+        var DT_tempItem = getDataType(tempItem);
+        var DT_tempFormatConf = getDataType(tempFormatConf);
 
         if (DT_tempFormatConf === Object) {
           tempObj[key] = format(tempItem, tempFormatConf);
