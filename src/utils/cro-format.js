@@ -1,4 +1,6 @@
-var CroFormat = (function() {
+/* eslint-disable */
+
+var CroFormat = (function () {
   var ClassArr = [Number, String, Boolean, Array, Object];
 
   function getDataType(data) {
@@ -23,7 +25,7 @@ var CroFormat = (function() {
         break;
       case String:
         {
-          return String(value || normalValue || "");
+          return String(value || normalValue || '');
         }
         break;
       case Boolean:
@@ -59,7 +61,7 @@ var CroFormat = (function() {
         return transformData(value, formatConf[0], formatConf[1]);
       }
 
-      throw new Error("请添加要校验的数据类型");
+      throw new Error('请添加要校验的数据类型');
     }
 
     // formatItem('123', Number);

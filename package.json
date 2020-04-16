@@ -1,0 +1,47 @@
+{
+  "name": "cro-format",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cro-format.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CroatiaParanoia/cro-format.git"
+  },
+  "keywords": [
+    "data",
+    "format"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CroatiaParanoia/cro-format/issues"
+  },
+  "homepage": "https://github.com/CroatiaParanoia/cro-format#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "babel-jest": "^25.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-alloy": "^3.7.1",
+    "husky": "^4.2.5",
+    "jest": "^25.3.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
+    "typescript": "^3.8.3"
+  }
+}

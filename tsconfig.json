@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@constant/*": ["./src/constant/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules"]
+}
