@@ -1,14 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "commonjs",
+    "target": "esnext",
+    "strict": true,
+    "lib": ["DOM", "esnext"],
+    "declaration": true,
+    "declarationMap": true,
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@constant/*": ["./src/constant/*"],
+      "@dataFormat/*": ["./src/dataFormat/*"],
+      "@typeCreator/*": ["./src/typeCreator/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["./src"],
-  "exclude": ["node_modules"]
+  "exclude": ["./node_modules"]
 }

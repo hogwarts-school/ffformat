@@ -4,10 +4,13 @@
   "description": "",
   "main": "cro-format.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "lint": "eslint src/ --ext .ts",
+    "test": "jest --watchAll",
+    "build": "tsc"
   },
   "husky": {
     "hooks": {
+      "pre-commit": "pretty-quick --pattern='src/*' --staged && npm run lint && npm run test -- --watchAll=false && npm run build",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -27,8 +30,10 @@
   "homepage": "https://github.com/CroatiaParanoia/cro-format#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-typescript": "^7.9.4",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
+    "@babel/types": "^7.9.5",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/jest": "^25.2.1",

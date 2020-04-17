@@ -1,5 +1,5 @@
-import { createValue } from './../utils/utils';
-import { AllowedDataType } from './../utils/dataType';
+import { createValue } from '@utils/utils';
+import { AllowedTypes } from '@constant/dataType';
 import Type from './Type';
 
 export interface PrimitiveTypeParams<T> {
@@ -8,7 +8,7 @@ export interface PrimitiveTypeParams<T> {
   systemDefaultValue: T;
 }
 
-class PrimitiveType<T extends AllowedDataType> extends Type {
+class PrimitiveType<T extends AllowedTypes.AllDataType> extends Type {
   public type: symbol;
 
   private defaultValue: T;

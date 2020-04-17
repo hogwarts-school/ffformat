@@ -1,52 +1,61 @@
-import { AllowedDataType, computedInitValue, typeCollection as T } from './../utils/dataType';
+import { AllowedTypes, typeCollection as T } from '@constant/dataType';
+import { computedInitValue, typeOf, isCompositeType } from '@utils/utils';
 import Type from './Type';
-import { ObjectTypeParams, PrimitiveTypes } from './types';
+import { ObjectTypeParams, AllType } from './types';
 
 export interface CompositeTypeParams<T> {
   type: symbol;
-  types: ObjectTypeParams | PrimitiveTypes;
+  types: ObjectTypeParams | AllType;
   defaultValue: T;
   systemDefaultValue: T;
 }
 
-class CompositeType<T extends AllowedDataType> extends Type {
+class CompositeType<Typing extends AllowedTypes.CompositeType> extends Type {
   public type: symbol;
-  public types: CompositeTypeParams<T>['types'];
+  public types: CompositeTypeParams<Typing>['types'];
 
-  private systemDefaultValue: T;
-  private defaultValue: T;
+  private systemDefaultValue: Typing;
+  private defaultValue: Typing;
 
-  public get rule(): [CompositeTypeParams<T>['types'], T] {
+  public get rule(): [CompositeTypeParams<Typing>['types'], Typing] {
     return [
       this.types,
-      computedInitValue<T>(this.defaultValue, this.type, this.systemDefaultValue)
+      computedInitValue<Typing>(this.defaultValue, this.type, this.systemDefaultValue)
     ];
   }
 
-  public get value() {
-    const [types] = this.rule;
-    return [this.type, this.createType(types), this.defaultValue];
+  public get value(): [symbol, any, Typing] {
+    const [types, defaultValue] = this.rule;
+    return [this.type, this.createType(types), defaultValue];
   }
 
-  public constructor({ type, types, defaultValue, systemDefaultValue }: CompositeTypeParams<T>) {
+  public constructor({ type, types, defaultValue, systemDefaultValue }: CompositeTypeParams<Typing>) {
     super();
+    if (!types) {
+      throw new Error(`the constructor need types to initialize`);
+    }
+    if (typeOf(types) !== T.object && !(types instanceof Type)) {
+      throw new Error(`types error`);
+    }
     this.type = type;
     this.types = types;
     this.defaultValue = defaultValue;
     this.systemDefaultValue = systemDefaultValue;
   }
 
-  public default = (defaultValue: T) => {
+  public default = (defaultValue: Typing) => {
     this.defaultValue = defaultValue;
     return this;
   };
 
-  private createType(types: CompositeTypeParams<T>['types']) {
-
+  private createType(types: CompositeTypeParams<Typing>['types']) {
     if (types instanceof Type) {
       return types.value;
     }
     return Object.entries(types).reduce((preItem, [key, item]) => {
+      if (!(item instanceof Type)) {
+        throw new Error(`the key: ${key} 's value need to be extends class 'Typing'`);
+      }
       return {
         ...preItem,
         [key]: item.value
