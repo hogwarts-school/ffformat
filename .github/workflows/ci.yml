@@ -1,7 +1,7 @@
 name: CI
 on: push
 jobs:
-  build-and-deploy:
+  ci-yo:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
