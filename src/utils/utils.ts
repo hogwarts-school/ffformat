@@ -17,13 +17,6 @@ export const computedInitValue = <T extends AllowedTypes.AllDataType>(
   return typeOf(data) === type ? data : initValue;
 };
 
-export const createValue = <T extends AllowedTypes.AllDataType>(
-  value: T,
-  type: symbol,
-  init: T
-): [symbol, T] => {
-  return [type, computedInitValue<T>(value, type, init)];
-};
 
 export const isCompositeType = (type: symbol) => {
   return [T.array, T.object].includes(type);

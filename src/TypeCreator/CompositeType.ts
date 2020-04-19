@@ -1,13 +1,18 @@
 import { AllowedTypes, typeCollection as T } from '@constant/dataType';
 import { computedInitValue, typeOf, isCompositeType } from '@utils/utils';
+import PrimitiveType from './PrimitiveType';
 import Type from './Type';
-import { ObjectTypeParams, AllType } from './types';
+import { TypeCreator } from './types';
 
 export interface CompositeTypeParams<T> {
   type: symbol;
-  types: ObjectTypeParams | AllType;
+  types: TypeCreator.ObjectTypeParams | TypeCreator.AllType;
   defaultValue: T;
   systemDefaultValue: T;
+}
+
+function isTypeInstance(value: any) {
+  return value instanceof PrimitiveType || value instanceof CompositeType;
 }
 
 class CompositeType<Typing extends AllowedTypes.CompositeType> extends Type {
@@ -29,7 +34,12 @@ class CompositeType<Typing extends AllowedTypes.CompositeType> extends Type {
     return [this.type, this.createType(types), defaultValue];
   }
 
-  public constructor({ type, types, defaultValue, systemDefaultValue }: CompositeTypeParams<Typing>) {
+  public constructor({
+    type,
+    types,
+    defaultValue,
+    systemDefaultValue
+  }: CompositeTypeParams<Typing>) {
     super();
     if (!types) {
       throw new Error(`the constructor need types to initialize`);
@@ -49,11 +59,11 @@ class CompositeType<Typing extends AllowedTypes.CompositeType> extends Type {
   };
 
   private createType(types: CompositeTypeParams<Typing>['types']) {
-    if (types instanceof Type) {
+    if (isTypeInstance(types)) {
       return types.value;
     }
     return Object.entries(types).reduce((preItem, [key, item]) => {
-      if (!(item instanceof Type)) {
+      if (!isTypeInstance(item)) {
         throw new Error(`the key: ${key} 's value need to be extends class 'Typing'`);
       }
       return {

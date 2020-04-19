@@ -1,7 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export declare namespace AllowedTypes {
+
+  export type ArrayType = any[];
+
   export type PrimitiveType = string | number | boolean;
-  export type CompositeType = any[] | object;
+  export type CompositeType = ArrayType | object;
 
   export type AllDataType = CompositeType | PrimitiveType;
 }

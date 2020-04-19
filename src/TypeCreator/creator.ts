@@ -1,6 +1,6 @@
 import CompositeType from './CompositeType';
 import PrimitiveType from './PrimitiveType';
-import { ObjectTypeParams, AllType } from './types';
+import { TypeCreator } from './types';
 import { typeCollection as T } from '@constant/dataType';
 
 const F = {
@@ -10,9 +10,9 @@ const F = {
     new PrimitiveType({ defaultValue, systemDefaultValue: 0, type: T.number }),
   boolean: (defaultValue = false) =>
     new PrimitiveType({ defaultValue, systemDefaultValue: false, type: T.boolean }),
-  array: (types: ObjectTypeParams | AllType) =>
+  array: (types: TypeCreator.ObjectTypeParams | TypeCreator.AllType) =>
     new CompositeType<any[]>({ type: T.array, types, defaultValue: [], systemDefaultValue: [] }),
-  object: (types: ObjectTypeParams) =>
+  object: (types: TypeCreator.ObjectTypeParams) =>
     new CompositeType<object>({ type: T.object, types, defaultValue: {}, systemDefaultValue: {} })
 };
 
