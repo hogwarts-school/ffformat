@@ -6,14 +6,13 @@
 // chore ：构建过程或辅助工具的变动
 // style ： 格式（不影响代码运行的变动）
 // test ：增加测试
-
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'type-enum': [
       2,
       'always',
-      ['upd', 'feat', 'fix', 'refactor', 'docs', 'chore', 'style', 'test', 'revert', 'Release']
+      ['upd', 'feat', 'fix', 'refactor', 'docs', 'chore', 'style', 'test', 'revert']
     ],
     'type-case': [0],
     'type-empty': [0],
@@ -22,5 +21,8 @@ module.exports = {
     'subject-full-stop': [0, 'never'],
     'subject-case': [0, 'never'],
     'header-max-length': [0, 'always', 72]
+  },
+  ignores(commit) {
+    return commit.startsWith('Release');
   }
 };
