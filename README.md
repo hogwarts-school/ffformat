@@ -9,6 +9,8 @@
 ### 为啥子要用
 - 一般情况下用不到， 除非对后端有些怨言...
 
+![description](./description.jpg)
+
 ### 使用
 ``` typescript
 import { typeCreator as T, format } from 'ffformat';
