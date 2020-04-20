@@ -9,6 +9,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
+      "@src/*": ["./src/*"],
       "@constant/*": ["./src/constant/*"],
       "@dataFormat/*": ["./src/dataFormat/*"],
       "@typeCreator/*": ["./src/typeCreator/*"],

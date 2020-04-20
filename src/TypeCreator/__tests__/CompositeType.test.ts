@@ -1,5 +1,5 @@
 import { typeCollection as T } from '@constant/dataType';
-import F from '@typeCreator/creator';
+import F from './../creator';
 
 describe('CompositeType', () => {
   describe('object & array', () => {

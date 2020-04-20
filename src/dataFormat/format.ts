@@ -57,4 +57,6 @@ const format = (
   }
 };
 
+export type Format = typeof format;
+
 export default format;

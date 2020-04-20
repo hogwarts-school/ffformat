@@ -3,7 +3,7 @@ import PrimitiveType from './PrimitiveType';
 import { TypeCreator } from './types';
 import { typeCollection as T } from '@constant/dataType';
 
-const F = {
+const typeCreator = {
   string: (defaultValue = '') =>
     new PrimitiveType({ defaultValue, systemDefaultValue: '', type: T.string }),
   number: (defaultValue = 0) =>
@@ -16,4 +16,6 @@ const F = {
     new CompositeType<object>({ type: T.object, types, defaultValue: {}, systemDefaultValue: {} })
 };
 
-export default F;
+export type TypeCreator = typeof typeCreator;
+
+export default typeCreator;
