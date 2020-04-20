@@ -1,5 +1,9 @@
-import typeCreator, { TypeCreator } from './typeCreator/creator';
-import format, { Format } from './dataFormat/format';
+import typeCreator, { TypeCreator } from './creator';
+
+import format, { Format } from './format/format';
+
 import { typeCollection, AllowedTypes } from './constant/dataType';
 
-export { typeCreator, TypeCreator, Format, format, typeCollection, AllowedTypes };
+import { typeOf } from './utils/utils';
+
+export { typeCreator, TypeCreator, Format, format, typeCollection, AllowedTypes, typeOf };

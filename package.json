@@ -6,7 +6,7 @@
   "type": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint src/ --ext .ts",
-    "test": "jest --watchAll",
+    "test": "jest --config=jest.config.js --watchAll",
     "build": "tsc"
   },
   "husky": {
@@ -31,7 +31,6 @@
   "homepage": "https://github.com/CroatiaParanoia/cro-format#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-typescript": "^7.9.4",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/types": "^7.9.5",

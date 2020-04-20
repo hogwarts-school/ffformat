@@ -2,31 +2,34 @@
 ![logo](./ffformat_logo.png)
 
 ## ffformat
-- 数据格式化，数据源 + 类型 = 崭新的格式化后数据。
+- 数据格式化，数据源 + 类型 = 完全新的格式化后数据。
+- 暂只支持 `string`、`number`、`boolean`、`object` 和 `array`。
+
 
 ### 为啥子要用
 - 一般情况下用不到， 除非对后端有些怨言...
 
-#### 使用
+### 使用
 ``` typescript
+import { typeCreator as T, format } from 'ffformat';
 // =============== basic usage =============
-format('croatia', F.string());
+format('croatia', T.string());
 // 'croatia'
 
-format(21, F.string());
+format(21, T.string());
 // '21'
 
-format(null, F.string());
+format(null, T.string());
 // ''
 
-format(null, F.string('croatia'));
+format(null, T.string('croatia'));
 // 'croatia'
 
 
 // ============== mixed usage =============
 format(
   { name: 'croatia', age: '21', skillId: ['1', '2', '3', '4'] },
-  F.object({ name: F.string(), age: F.number(), skillId: F.array(F.number()) })
+  T.object({ name: T.string(), age: T.number(), skillId: T.array(T.number()) })
 );
 // {
 //    name: 'croatia',

@@ -658,7 +658,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/plugin-transform-typescript@^7.9.0", "@babel/plugin-transform-typescript@^7.9.4":
+"@babel/plugin-transform-typescript@^7.9.0":
   version "7.9.4"
   resolved "http://r.cnpmjs.org/@babel/plugin-transform-typescript/download/@babel/plugin-transform-typescript-7.9.4.tgz#4bb4dde4f10bbf2d787fce9707fb09b483e33359"
   integrity sha1-S7Td5PELvy14f86XB/sJtIPjM1k=

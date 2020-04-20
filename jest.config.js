@@ -24,7 +24,7 @@ module.exports = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  // coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -83,7 +83,7 @@ module.exports = {
     '^@src(.*)$': '<rootDir>/src$1',
     '^@constant(.*)$': '<rootDir>/src/constant$1',
     '^@dataFormat(.*)$': '<rootDir>/src/dataFormat$1',
-    '^@typeCreator(.*)$': '<rootDir>/src/typeCreator$1',
+    '^@creator(.*)$': '<rootDir>/src/creator$1',
     '^@utils(.*)$': '<rootDir>/src/utils$1'
   },
 

@@ -1,4 +1,4 @@
-import { TypeCreator } from '@typeCreator/types';
+import { TypeCreator } from '@src/creator/types';
 import { AllowedTypes, typeCollection as T } from '@constant/dataType';
 import { typeOf } from '@utils/utils';
 import { transformData } from './transform';

@@ -1,5 +1,5 @@
-import format from './../format';
-import F from '@src/typeCreator/creator';
+import format from '../format';
+import F from '@src/creator';
 
 describe('format', () => {
   describe('usage of string', () => {

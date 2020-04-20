@@ -1,4 +1,4 @@
-import { transformData } from './../transform';
+import { transformData } from '../transform';
 import { typeCollection as T } from '@constant/dataType';
 
 describe('transformData', () => {
