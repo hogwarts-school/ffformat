@@ -1,13 +1,17 @@
 {
   "name": "ffformat",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "type": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint src/ --ext .ts",
     "test": "jest --config=jest.config.js --watchAll",
-    "build": "rm -rf ./dist && tsc"
+    "build": "rm -rf ./dist && tsc",
+    "release": "npm run build && npm publish"
   },
   "husky": {
     "hooks": {
@@ -48,5 +52,6 @@
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
     "typescript": "^3.8.3"
-  }
+  },
+  "dependencies": {}
 }
