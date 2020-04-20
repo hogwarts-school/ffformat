@@ -99,3 +99,4 @@ var CroFormat = (function () {
   format.getDataType = getDataType;
   return format;
 })();
+

@@ -5,7 +5,6 @@ function transformData(
   dataType: symbol,
   normalValue: AllowedTypes.PrimitiveType
 ) {
-  console.log(dataType, '213')
   switch (dataType) {
     case T.number: {
       const tempRes = Number(value === null ? undefined : value);

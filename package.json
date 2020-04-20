@@ -1,8 +1,9 @@
 {
-  "name": "cro-format",
+  "name": "ffformat",
   "version": "1.0.0",
   "description": "",
-  "main": "cro-format.js",
+  "main": "dist/index.js",
+  "type": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint src/ --ext .ts",
     "test": "jest --watchAll",

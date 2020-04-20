@@ -7,11 +7,9 @@ const format = (
   currentData: AllowedTypes.AllDataType,
   types: TypeCreator.MixTypeValue | TypeCreator.AllType
 ): unknown => {
-  // const currentType = types[0];
   const innerTypes = (typeOf(types) === T.array
     ? types
     : (types as TypeCreator.AllType).value) as TypeCreator.MixTypeValue;
-
   const currentType = innerTypes[0];
 
   switch (currentType) {
@@ -26,7 +24,7 @@ const format = (
       );
     }
     case T.array: {
-      const [_, items, normalValue] = innerTypes;
+      const [_, items, normalValue] = innerTypes as [symbol, TypeCreator.MixTypeValue, any];
       const itemsType = typeOf(items) === T.object ? T.object : ((items as unknown) as [symbol])[0];
 
       if (typeOf(currentData) !== T.array) {
@@ -34,7 +32,7 @@ const format = (
       }
 
       const itemsTypeValue = (itemsType === T.object
-        ? [T.object, items, {}]
+        ? [T.object, items, format({}, [T.object, items, {}])]
         : items) as TypeCreator.MixTypeValue;
 
       return (currentData as AllowedTypes.ArrayType).map((v) => {
