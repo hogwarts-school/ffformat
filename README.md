@@ -39,4 +39,4 @@ format(
 );
 
 ```
-更多示例， 看 `dataFormat/__tests__/format.test.ts`
+更多示例， 看 `format/__tests__/format.test.ts`
