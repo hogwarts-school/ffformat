@@ -1,6 +1,5 @@
 import { computedInitValue } from '@utils/utils';
 import { AllowedTypes } from '@constant/dataType';
-import Type from './Type';
 
 export interface PrimitiveTypeParams<T> {
   type: symbol;
@@ -8,9 +7,7 @@ export interface PrimitiveTypeParams<T> {
   systemDefaultValue: T;
 }
 
-
-
-class PrimitiveType<T extends AllowedTypes.PrimitiveType> extends Type {
+class PrimitiveType<T extends AllowedTypes.PrimitiveType> {
   public type: symbol;
 
   private defaultValue: T;
@@ -20,7 +17,6 @@ class PrimitiveType<T extends AllowedTypes.PrimitiveType> extends Type {
     return this.createValue(this.defaultValue, this.type, this.systemDefaultValue);
   }
   public constructor({ type, defaultValue, systemDefaultValue }: PrimitiveTypeParams<T>) {
-    super();
     this.type = type;
     this.defaultValue = defaultValue;
     this.systemDefaultValue = systemDefaultValue;

@@ -1,7 +1,6 @@
 import { AllowedTypes, typeCollection as T } from '@constant/dataType';
 import { computedInitValue, typeOf, isCompositeType } from '@utils/utils';
 import PrimitiveType from './PrimitiveType';
-import Type from './Type';
 import { TypeCreator } from './types';
 
 export interface CompositeTypeParams<T> {
@@ -15,7 +14,7 @@ function isTypeInstance(value: any) {
   return value instanceof PrimitiveType || value instanceof CompositeType;
 }
 
-class CompositeType<Typing extends AllowedTypes.CompositeType> extends Type {
+class CompositeType<Typing extends AllowedTypes.CompositeType> {
   public type: symbol;
   public types: CompositeTypeParams<Typing>['types'];
 
@@ -40,11 +39,10 @@ class CompositeType<Typing extends AllowedTypes.CompositeType> extends Type {
     defaultValue,
     systemDefaultValue
   }: CompositeTypeParams<Typing>) {
-    super();
     if (!types) {
       throw new Error(`the constructor need types to initialize`);
     }
-    if (typeOf(types) !== T.object && !(types instanceof Type)) {
+    if (typeOf(types) !== T.object && !isTypeInstance(types)) {
       throw new Error(`types error`);
     }
     this.type = type;

@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "esnext",
+    "target": "ES5",
     "strict": true,
     "lib": ["DOM", "esnext"],
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "outDir": "dist",
+    "declarationDir": "types",
     "baseUrl": ".",
     "paths": {
       "@src/*": ["./src/*"],
@@ -16,5 +17,5 @@
       "@utils/*": ["./src/utils/*"]
     }
   },
-  "exclude": ["./node_modules", "./dist"]
+  "exclude": ["./node_modules", "./lib", "./types", "./dist", "**/__tests__/*"]
 }
