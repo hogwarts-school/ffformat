@@ -52,35 +52,47 @@ const createNextVersion = (
 const choicesList: NextVersionType[] = ['alpha', 'beta', 'rc', 'large', 'middle', 'small'];
 const CUSTOM_VERSION = '自定义版本';
 
+const timeLog = (logInfo: string) => {
+  const nowDate = new Date();
+  console.log(
+    `[${nowDate.toLocaleString()}.${nowDate
+      .getMilliseconds()
+      .toString()
+      .padStart(3, '0')}] ${logInfo}`
+  );
+};
+
 const release = async (versionStr: string) => {
   const util = require('util');
   const exec = util.promisify(child_process.exec);
 
   // =================== 修改版本 ===================
   packageJson.version = versionStr;
-  console.log('🤔开始修改package.json版本');
+  timeLog(`🤔开始修改package.json版本`);
   await fs.writeFileSync(path.resolve(__dirname, './../package.json'), JSON.stringify(packageJson));
   await exec("pretty-quick --pattern='package.json'");
-  console.log('😁修改package.json版本成功');
+  timeLog('😁修改package.json版本成功');
 
   // =================== 代码推送git仓库 ===================
-  console.log('🤔代码开始推送到git仓库');
+  timeLog('🤔代码开始推送到git仓库');
   await exec('git add package.json');
   await exec(`git commit -m "v${versionStr}" -n`);
   await exec('git push -f');
-  console.log('😁代码推送到git仓库成功');
+  timeLog('😁代码推送到git仓库成功');
 
   // =================== 打包及发布npm ===================
-  console.log('🤔开始打包和发布NPM');
-  await exec('npm run build && npm run release');
-  console.log('😁发布NPM成功');
+  timeLog('🤔开始打包和发布NPM');
+  await exec('npm run build && npm publish');
+  timeLog('😁发布NPM成功');
 
   // =================== git仓库打TAG ===================
-  console.log('🤔开始打TAG推送到git仓库');
+  timeLog('🤔开始打TAG推送到git仓库');
   await exec(`git tag v${versionStr}`);
   await exec(`git push origin tag v${versionStr}`);
-  console.log('😁打TAG推送到git仓库成功');
+  timeLog('😁打TAG推送到git仓库成功');
 };
+
+let startTime = 0;
 
 inquirer
   .prompt([
@@ -100,10 +112,11 @@ inquirer
     return { version };
   })
   .then(({ version }: any) => {
+    startTime = Date.now();
     return release(version);
   })
   .then(() => {
-    console.log('😝发布成功');
+    timeLog(`😝发布成功 总共耗时${((Date.now() - startTime) / 1000).toFixed(3)}s`);
   })
   .catch((err: any) => {
     console.log(err, 'error o');
