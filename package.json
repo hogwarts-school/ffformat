@@ -1,6 +1,6 @@
 {
   "name": "ffformat",
-  "version": "1.0.5-alpha.3",
+  "version": "1.0.5-alpha.4",
   "description": "",
   "main": "lib/index.js",
   "type": "types/index.d.ts",
