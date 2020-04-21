@@ -17,5 +17,6 @@
       "@utils/*": ["./src/utils/*"]
     }
   },
+  "include": ["./src/*.ts"],
   "exclude": ["./node_modules", "./lib", "./types", "./dist", "**/__tests__/*"]
 }
