@@ -11,6 +11,11 @@
 
 ![description](./description.jpg)
 
+### 安装
+```
+yarn add ffformat 
+```
+
 ### 使用
 ``` typescript
 import { typeCreator as T, format } from 'ffformat';
@@ -41,4 +46,4 @@ format(
 );
 
 ```
-更多示例， 看 `format/__tests__/format.test.ts`
+更多示例， 看 [format/\_\_tests\_\_/format.test.ts](https://github.com/CroatiaParanoia/ffformat/blob/master/src/format/__tests__/format.test.ts)
