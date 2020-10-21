@@ -9,21 +9,18 @@
     "types"
   ],
   "scripts": {
+    "postinstall": "cd ./playground && yarn",
     "lint": "eslint src/ --ext .ts",
     "test": "jest --config=jest.config.js --watchAll",
     "clear": "rm -rf ./lib ./types",
     "build": "npm run clear && webpack",
+    "build:website": "cd ./playground && yarn build",
     "release": "ts-node ./scripts/release.ts"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --pattern='src/*' --staged && npm run lint && npm run test -- --watchAll=false && npm run build",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
     }
   },
   "repository": {
@@ -53,8 +50,6 @@
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "babel-jest": "^25.3.0",
-    "commitizen": "^4.2.2",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.11.0",
     "eslint-config-alloy": "^3.8.2",
     "gulp": "^4.0.2",

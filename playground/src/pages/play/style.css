@@ -1,0 +1,17 @@
+.container {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  min-width: 1200px;
+}
+
+.container > .header {
+  background-color: #d42d26;
+  padding: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 8px;
+}
