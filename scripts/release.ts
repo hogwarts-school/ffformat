@@ -92,18 +92,18 @@ async function push(nextVersion: string) {
  * 组件库打包
  */
 async function build() {
-  timeLog('组件库打包', 'start');
+  timeLog('打包', 'start');
   await run('npm run build');
-  timeLog('组件库打包', 'end');
+  timeLog('打包', 'end');
 }
 
 /**
  * 发布至npm
  */
 async function publish() {
-  timeLog('发布组件库', 'start');
+  timeLog('发布', 'start');
   await run('npm publish');
-  timeLog('发布组件库', 'end');
+  timeLog('发布', 'end');
 }
 
 /**
@@ -124,7 +124,7 @@ async function main() {
     await updateVersion(nextVersion);
     // =================== 代码推送git仓库 ===================
     await push(nextVersion);
-    // =================== 组件库打包 ===================
+    // =================== 打包 ===================
     await build();
     // =================== 发布至npm ===================
     await publish();

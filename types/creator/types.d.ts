@@ -8,6 +8,10 @@ export declare namespace TypeCreator {
     type ObjectTypeParams = Record<string, TypeCreator.AllType>;
     type PrimitiveValue = [symbol, AllowedTypes.PrimitiveType];
     type AllValue<T> = PrimitiveValue | T;
-    type CompositeValue = [symbol, Record<string, AllValue<CompositeValue>> | AllValue<CompositeValue>, AllowedTypes.CompositeType];
+    type CompositeValue = [
+        symbol,
+        Record<string, AllValue<CompositeValue>> | AllValue<CompositeValue>,
+        AllowedTypes.CompositeType
+    ];
     type MixTypeValue = PrimitiveValue | CompositeValue;
 }
