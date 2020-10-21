@@ -10,13 +10,13 @@
     "declarationDir": "types",
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["./src/*"],
-      "@constant/*": ["./src/constant/*"],
+      "@src/*": ["src/*"],
+      "@constant/*": ["src/constant/*"],
       "@dataFormat/*": ["src/format/*"],
       "@creator/*": ["src/creator/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["./src/*.ts"],
-  "exclude": ["./node_modules", "./lib", "./types", "./dist", "**/__tests__/*"]
+  "include": ["src/*.ts", "src/**/*.ts"],
+  "exclude": ["node_modules", "lib", "types", "dist"]
 }

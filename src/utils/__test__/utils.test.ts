@@ -1,4 +1,4 @@
-import { typeOf, computedInitValue, isCompositeType } from './../utils';
+import { typeOf, computedInitValue } from './../utils';
 import { typeCollection as T } from '@constant/dataType';
 
 describe('utils', () => {
