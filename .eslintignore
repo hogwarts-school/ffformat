@@ -4,3 +4,4 @@ node_modules
 gulpfile.js
 webpack.config.js
 coverage
+yarn.lock
