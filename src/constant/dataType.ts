@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export declare namespace AllowedTypes {
 
   export type ArrayType = any[];

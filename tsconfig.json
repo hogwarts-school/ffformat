@@ -15,7 +15,9 @@
       "@dataFormat/*": ["src/format/*"],
       "@creator/*": ["src/creator/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": ["src/*.ts", "src/**/*.ts"],
   "exclude": ["node_modules", "lib", "types", "dist"]
