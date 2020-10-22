@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ffformat/editor.worker.js"
   },
   {
-    "revision": "3800b376777e32ee1a67533ac05d5d6b",
+    "revision": "c8df7777c25b59f60606ddbb95509d74",
     "url": "/ffformat/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ffformat/static/css/2.57a24f06.chunk.css"
   },
   {
-    "revision": "38676fc4c1790ae121e5",
+    "revision": "fccdfbf51a85aebe6c62",
     "url": "/ffformat/static/css/main.bda3503b.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ffformat/static/js/4.fb44cce9.chunk.js"
   },
   {
-    "revision": "38676fc4c1790ae121e5",
-    "url": "/ffformat/static/js/main.d5be66dc.chunk.js"
+    "revision": "fccdfbf51a85aebe6c62",
+    "url": "/ffformat/static/js/main.02a9a44d.chunk.js"
   },
   {
     "revision": "68816c4b7f11f0fa316c",
