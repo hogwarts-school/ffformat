@@ -38,7 +38,7 @@ function Play() {
     window.format = format;
 
     infect(window, 'format', (value: any) => {
-      setOutput(JSON.stringify(value, null, 2) + '\n');
+      setOutput((pre) => pre + JSON.stringify(value, null, 2) + '\n');
     });
 
     // const handleConsoleLog = ({ params }: any) => {
@@ -54,6 +54,7 @@ function Play() {
 
   const run = useCallback(() => {
     try {
+      setOutput('');
       // eslint-disable-next-line
       eval(input);
     } catch (err) {
