@@ -37,38 +37,9 @@ function Play() {
     // @ts-ignore
     window.format = format;
 
-    // infect(window, 'format', (value: any) => {
-    //   setOutput((pre) => pre + JSON.stringify(value, null, 2) + '\n');
-    // });
-
-    const v = format(
-      {
-        goodsName: 'IphoneSE',
-        price: '3299.99',
-        goodsAttr: [{ attrName: null, attrValues: ['红色', '黑色', '白色'] }],
-        shopInfo: {
-          shopName: '111'
-        }
-      },
-      T.object({
-        goodsName: T.string(),
-        price: T.number(),
-        // goodsAttr: T.array({
-        //   attrName: T.string('默认属性名'),
-        //   attrValues: T.array({
-        //     attr: T.string('默认属性值o'),
-        //     attrId: T.number(666)
-        //   }).default(['默认属性值'])
-        // }),
-        shopInfo: T.object({
-          shopName: T.string(),
-          shopId: T.number(),
-          shopLevel: T.number(),
-          shopTags: T.array(T.string())
-        }).default({ shopName: '暂无该店铺', shopId: 0, shopLevel: -1, shopTags: [] })
-      })
-    );
-    console.log(v, 'vvvv');
+    infect(window, 'format', (value: any) => {
+      setOutput((pre) => pre + JSON.stringify(value, null, 2) + '\n');
+    });
 
     // const handleConsoleLog = ({ params }: any) => {
     //   setOutput(
