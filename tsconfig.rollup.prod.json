@@ -1,4 +1,4 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.rollup.json",
   "exclude": ["node_modules", "lib", "types", "dist", "**/__tests__/*"]
 }

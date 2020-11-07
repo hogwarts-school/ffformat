@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "module": "ES2015"
+  },
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "lib", "types", "dist", "**/__tests__/*"]
+}

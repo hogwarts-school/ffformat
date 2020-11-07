@@ -9,7 +9,7 @@ const devPlugins = [
   typescript({
     exclude: 'node_modules/**',
     typescript: tsc,
-    tsconfig: './tsconfig.json'
+    tsconfig: './tsconfig.rollup.json'
   }),
   sourceMaps()
 ];
@@ -18,7 +18,7 @@ const prodPlugins = [
   typescript({
     exclude: 'node_modules/**',
     typescript: tsc,
-    tsconfig: './tsconfig.prod.json'
+    tsconfig: './tsconfig.rollup.prod.json'
   })
 ];
 
