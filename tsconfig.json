@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ES2015",
     "target": "ES5",
     "strict": true,
     "lib": ["DOM", "esnext"],
@@ -16,7 +16,6 @@
       "@creator/*": ["src/creator/*"],
       "@utils/*": ["src/utils/*"]
     },
-    "resolveJsonModule": true,
     "esModuleInterop": true
   },
   "include": ["src/*.ts", "src/**/*.ts"],

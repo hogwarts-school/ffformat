@@ -41,14 +41,13 @@ const format = (
     }
     case T.object: {
       const [_, properties, normalValue] = innerTypes;
-      if (typeOf(currentData) !== T.object) {
+      if (typeOf(currentData) !== T.object && Object.keys(normalValue as object).length) {
         return normalValue;
       }
-
       return Object.entries(properties).reduce((preItem, [key, value]) => {
         return {
           ...preItem,
-          [key]: format((currentData as any)[key], value)
+          [key]: format((currentData as any)?.[key], value)
         };
       }, {});
     }

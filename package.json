@@ -2,20 +2,21 @@
   "name": "ffformat",
   "version": "1.2.0",
   "description": "",
-  "main": "lib/index.js",
-  "types": "types/index.d.ts",
+  "main": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "types"
+    "lib"
   ],
   "scripts": {
     "postinstall": "cd ./playground && yarn",
     "lint": "eslint src/ --ext .ts",
+    "start": "cross-env NODE_ENV=dev rollup -cw",
     "test": "jest --config=jest.config.js --watchAll",
     "clear": "rm -rf ./lib ./types",
-    "build": "npm run clear && webpack",
+    "build": "npm run clear && cross-env NODE_ENV=prod rollup -c",
+    "start:website": "cd ./playground && yarn start",
     "build:website": "cd ./playground && yarn build",
-    "release": "ts-node ./scripts/release.ts"
+    "release": "npx ts-node ./scripts/release.ts"
   },
   "husky": {
     "hooks": {
@@ -38,8 +39,8 @@
   },
   "homepage": "https://github.com/CroatiaParanoia/ffformat#readme",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/types": "^7.9.5",
     "@commitlint/cli": "^11.0.0",
@@ -50,25 +51,22 @@
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "babel-jest": "^25.3.0",
+    "cross-env": "^7.0.2",
     "eslint": "^7.11.0",
     "eslint-config-alloy": "^3.8.2",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "gulp-uglify": "^3.0.2",
     "husky": "^4.2.5",
     "inquirer": "^7.1.0",
     "jest": "^25.3.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
+    "rollup": "^2.33.1",
+    "rollup-plugin-alias": "^2.2.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.29.0",
     "semver": "^7.3.2",
-    "ts-loader": "^8.0.6",
-    "ts-node": "^8.9.0",
-    "typescript": "^4.0.3",
-    "vinyl-buffer": "^1.0.1",
-    "webpack": "^5.1.3",
-    "webpack-cli": "^4.1.0"
+    "typescript": "^4.0.3"
   },
   "dependencies": {}
 }

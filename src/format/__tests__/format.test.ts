@@ -128,7 +128,7 @@ describe('format', () => {
     it('format exception', () => {
       const v = format('croatia', F.object({ name: F.string(), age: F.number() }));
 
-      expect(v).toEqual({});
+      expect(v).toEqual({ name: '', age: 0 });
     });
 
     it('use defaultValue when format exception', () => {
