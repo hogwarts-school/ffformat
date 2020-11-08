@@ -21,7 +21,7 @@
   "homepage": "https://CroatiaParanoia.github.io/ffformat",
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "yarn && craco build",
     "test": "craco test",
     "eject": "craco eject"
   },

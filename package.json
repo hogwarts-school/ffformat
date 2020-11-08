@@ -8,7 +8,6 @@
     "lib"
   ],
   "scripts": {
-    "postinstall": "cd ./playground && yarn",
     "lint": "eslint src/ --ext .ts",
     "start": "cross-env NODE_ENV=dev rollup -cw",
     "test": "jest --config=jest.config.js --watchAll",
