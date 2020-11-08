@@ -15,7 +15,7 @@
     "clear": "rm -rf ./lib ./types",
     "build": "npm run clear && cross-env NODE_ENV=prod rollup -c",
     "start:website": "cd ./playground && yarn start",
-    "build:website": "cd ./playground && yarn build",
+    "build:website": "cd ./playground && yarn upgrade ffformat && yarn build",
     "release": "npx ts-node ./scripts/release.ts"
   },
   "husky": {
